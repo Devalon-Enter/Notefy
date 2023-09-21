@@ -1,31 +1,52 @@
 package com.notefy.notefyapp.notes;
 
+
+
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Notes {
-    private long id;
-    private String title;
-    private LocalDate from;
-    private LocalDate to;
 
-    public Notes(long id, String title, LocalDate from, LocalDate to) {
+    @Id
+    @SequenceGenerator(
+            name = "notes_sequence",
+            sequenceName = "notes_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "notes_sequence"
+    )
+    private Long id;
+    private String title;
+    private LocalDate fromDate;
+    private LocalDate toDate;
+
+    public Notes() {
+
+    }
+
+    public Notes(Long id, String title, LocalDate fromDate, LocalDate toDate) {
         this.id = id;
         this.title = title;
-        this.from = from;
-        this.to = to;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
     }
 
-    public Notes(String title, LocalDate from, LocalDate to) {
+    public Notes(String title, LocalDate fromDate, LocalDate toDate) {
         this.title = title;
-        this.from = from;
-        this.to = to;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,20 +58,20 @@ public class Notes {
         this.title = title;
     }
 
-    public LocalDate getFrom() {
-        return from;
+    public LocalDate getFromDate() {
+        return fromDate;
     }
 
-    public void setFrom(LocalDate from) {
-        this.from = from;
+    public void setFromDate(LocalDate fromDate) {
+        this.fromDate = fromDate;
     }
 
-    public LocalDate getTo() {
-        return to;
+    public LocalDate getToDate() {
+        return toDate;
     }
 
-    public void setTo(LocalDate to) {
-        this.to = to;
+    public void setToDate(LocalDate toDate) {
+        this.toDate = toDate;
     }
 
     @Override
@@ -58,8 +79,8 @@ public class Notes {
         return "Notes{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", from=" + from +
-                ", to=" + to +
+                ", from=" + fromDate +
+                ", to=" + toDate +
                 '}';
     }
 }

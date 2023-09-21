@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Notefy.iml" filepath="$PROJECT_DIR$/.idea/Notefy.iml" />
-      <module fileurl="file://$PROJECT_DIR$/notefy-app/notefy-app.iml" filepath="$PROJECT_DIR$/notefy-app/notefy-app.iml" />
     </modules>
   </component>
 </project>

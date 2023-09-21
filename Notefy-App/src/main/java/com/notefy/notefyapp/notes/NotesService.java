@@ -1,18 +1,27 @@
 package com.notefy.notefyapp.notes;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
+@Service
 public class NotesService {
+
+    private final NotesRepository notesRepository;
+
+    @Autowired
+    public NotesService(NotesRepository notesRepository) {
+        this.notesRepository = notesRepository;
+    }
+
     public List<Notes> getNotes() {
-        return List.of(
-                new Notes(
-                        1L,
-                        "Create Notes",
-                        LocalDate.of(2023, Month.SEPTEMBER, 21),
-                        LocalDate.of(2023, Month.SEPTEMBER, 23)
-                )
-        );
+        return notesRepository.findAll();
+    }
+
+    public void addNewNote(Notes note) {
+        System.out.println(note);
     }
 }
