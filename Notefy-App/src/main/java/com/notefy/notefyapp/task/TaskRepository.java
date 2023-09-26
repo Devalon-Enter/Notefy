@@ -1,10 +1,10 @@
-package com.notefy.notefyapp.notes;
+package com.notefy.notefyapp.task;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface NotesRepository extends
-        JpaRepository<Notes, Long> {
+public interface TaskRepository extends
+        JpaRepository<Task, Long> {
 
 }

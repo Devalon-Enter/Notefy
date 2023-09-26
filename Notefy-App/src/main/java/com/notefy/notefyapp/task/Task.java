@@ -1,4 +1,4 @@
-package com.notefy.notefyapp.notes;
+package com.notefy.notefyapp.task;
 
 
 
@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table
-public class Notes {
+public class Task {
 
     @Id
     @SequenceGenerator(
@@ -22,24 +22,30 @@ public class Notes {
     )
     private Long id;
     private String title;
-    private LocalDate fromDate;
-    private LocalDate toDate;
+    private String priority;
+    private boolean done;
+    private LocalDate createDate;
+    private LocalDate dueDate;
 
-    public Notes() {
+    public Task () {
 
     }
 
-    public Notes(Long id, String title, LocalDate fromDate, LocalDate toDate) {
+    public Task(Long id, String title, String priority, boolean done, LocalDate createDate, LocalDate dueDate) {
         this.id = id;
         this.title = title;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
+        this.priority = priority;
+        this.done = done;
+        this.createDate = createDate;
+        this.dueDate = dueDate;
     }
 
-    public Notes(String title, LocalDate fromDate, LocalDate toDate) {
+    public Task(String title, String priority, boolean done, LocalDate createDate, LocalDate dueDate) {
         this.title = title;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
+        this.priority = priority;
+        this.done = done;
+        this.createDate = createDate;
+        this.dueDate = dueDate;
     }
 
     public Long getId() {
@@ -58,20 +64,36 @@ public class Notes {
         this.title = title;
     }
 
-    public LocalDate getFromDate() {
-        return fromDate;
+    public String getPriority() {
+        return priority;
     }
 
-    public void setFromDate(LocalDate fromDate) {
-        this.fromDate = fromDate;
+    public void setPriority(String priority) {
+        this.priority = priority;
     }
 
-    public LocalDate getToDate() {
-        return toDate;
+    public boolean isDone() {
+        return done;
     }
 
-    public void setToDate(LocalDate toDate) {
-        this.toDate = toDate;
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
+    public LocalDate getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(LocalDate createDate) {
+        this.createDate = createDate;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
     }
 
     @Override
@@ -79,8 +101,10 @@ public class Notes {
         return "Notes{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", from=" + fromDate +
-                ", to=" + toDate +
+                ", priority='" + priority + '\'' +
+                ", done=" + done +
+                ", createDate=" + createDate +
+                ", dueDate=" + dueDate +
                 '}';
     }
 }

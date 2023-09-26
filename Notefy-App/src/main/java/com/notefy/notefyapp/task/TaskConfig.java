@@ -1,4 +1,4 @@
-package com.notefy.notefyapp.notes;
+package com.notefy.notefyapp.task;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -10,18 +10,22 @@ import java.util.List;
 import static java.util.Calendar.*;
 
 @Configuration
-public class NotesConfig {
+public class TaskConfig {
     @Bean
-    CommandLineRunner commandLineRunner(NotesRepository repository) {
+    CommandLineRunner commandLineRunner(TaskRepository repository) {
         return args -> {
-            Notes n1 = new Notes(
+            Task n1 = new Task(
                     "Create Notes",
+                    "High",
+                    false,
                     LocalDate.of(2023, SEPTEMBER, 21),
                     LocalDate.of(2023, SEPTEMBER, 23)
             );
 
-            Notes n2 = new Notes(
+            Task n2 = new Task(
                     "Update Database",
+                    "Low",
+                    false,
                     LocalDate.of(2023, SEPTEMBER, 21),
                     LocalDate.of(2023, SEPTEMBER, 25)
             );

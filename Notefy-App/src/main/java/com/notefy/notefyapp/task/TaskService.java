@@ -1,36 +1,25 @@
-package com.notefy.notefyapp.notes;
+package com.notefy.notefyapp.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class NotesService {
+public class TaskService {
 
-    private final NotesRepository notesRepository;
+    private final TaskRepository taskRepository;
 
     @Autowired
-    public NotesService(NotesRepository notesRepository) {
-        this.notesRepository = notesRepository;
+    public TaskService(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
     }
 
-    public Optional<Notes> getNote(Long id) {
-        return notesRepository.findById(id);
+    public List<Task> getNotes() {
+        return taskRepository.findAll();
     }
 
-    public List<Notes> getNotes() {
-        return notesRepository.findAll();
+    public void addNewNote(Task task) {
+        System.out.println(task);
     }
-
-    public void addNewNote(Notes note) {
-        notesRepository.save(note);
-        System.out.println("Saved on DB:" + note);
-    }
-
-    public void updateNote(Long id) {
-
-    }
-
 }
