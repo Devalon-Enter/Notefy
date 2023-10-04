@@ -22,7 +22,7 @@ public class Task {
     )
     private Long id;
     private String title;
-    private String priority;
+    private  PriorityType priority;
     private boolean done;
     private LocalDate createDate;
     private LocalDate dueDate;
@@ -31,7 +31,7 @@ public class Task {
 
     }
 
-    public Task(Long id, String title, String priority, boolean done, LocalDate createDate, LocalDate dueDate) {
+    public Task(Long id, String title, PriorityType priority, boolean done, LocalDate createDate, LocalDate dueDate) {
         this.id = id;
         this.title = title;
         this.priority = priority;
@@ -40,7 +40,7 @@ public class Task {
         this.dueDate = dueDate;
     }
 
-    public Task(String title, String priority, boolean done, LocalDate createDate, LocalDate dueDate) {
+    public Task(String title, PriorityType priority, boolean done, LocalDate createDate, LocalDate dueDate) {
         this.title = title;
         this.priority = priority;
         this.done = done;
@@ -64,15 +64,15 @@ public class Task {
         this.title = title;
     }
 
-    public String getPriority() {
+    public PriorityType getPriority() {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(PriorityType priority) {
         this.priority = priority;
     }
 
-    public boolean isDone() {
+    public boolean getDone() {
         return done;
     }
 
