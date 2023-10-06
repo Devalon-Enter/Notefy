@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <!-- Google Fonts end -->
     <link rel="stylesheet" href="style.css">
-    <title>Landing Page</title>
+    <title>HomePage</title>
 </head>
 <body>
-    <h1>This is my landing Page</h1>
+    <h1>This is my Notefy</h1>
     <p>Create a note!!</p>
 
     <form action="../app/Models/createNote.php" method="post">
