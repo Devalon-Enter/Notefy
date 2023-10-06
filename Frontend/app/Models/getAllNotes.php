@@ -1,5 +1,5 @@
 <?php
-
+include 'deleteBtn.php';
 
 // Ziel-URL
 $url = 'http://localhost:8080/api/v1/task';
@@ -32,5 +32,6 @@ foreach ($decodedData as $item) {
     echo "<td>" . $item["done"] . "</td>";      // Somehow does not work yet
     echo "<td>" . $item["createDate"] . "</td>";
     echo "<td>" . $item["dueDate"] . "</td>";
+    echo "<td>" . deleteButton($item["id"]) . "</td>";
     echo "</tr>";
 }

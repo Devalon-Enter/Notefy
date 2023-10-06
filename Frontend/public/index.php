@@ -46,12 +46,12 @@
             <th>Status</th>
             <th>Creation Date</th>
             <th>Due Date</th>
+            <th></th>
         </tr>
         <?php
         include '../app/Models/getAllNotes.php';
         ?>
     </table>
-
 </body>
 </html>
 
