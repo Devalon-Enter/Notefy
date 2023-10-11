@@ -24,14 +24,16 @@ curl_close($curl);
 //echo $response;
 
 $decodedData = json_decode($response, true); // Decodes JSON data into an associative array
-foreach ($decodedData as $item) {
-    echo "<tr>";
-    // Format the HTML Table
-    echo "<td>" . $item["title"] . "</td>";
-    echo "<td>" . $item["priority"] . "</td>";
-    echo "<td>" . (($item["done"] == 1) ? "Done" : "Not Done") . "</td>";
-    echo "<td>" . $item["createDate"] . "</td>";
-    echo "<td>" . $item["dueDate"] . "</td>";
-    echo "<td>" . deleteButton($item["id"]) . "</td>";
-    echo "</tr>";
+if (!empty($decodedData)) {
+    foreach ($decodedData as $item) {
+        echo "<tr>";
+        // Format the HTML Table
+        echo "<td>" . $item["title"] . "</td>";
+        echo "<td>" . $item["priority"] . "</td>";
+        echo "<td>" . (($item["done"] == 1) ? "Done" : "Not Done") . "</td>";
+        echo "<td>" . $item["createDate"] . "</td>";
+        echo "<td>" . $item["dueDate"] . "</td>";
+        echo "<td>" . deleteButton($item["id"]) . "</td>";
+        echo "</tr>";
+    }
 }
