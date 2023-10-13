@@ -48,6 +48,7 @@ public class TaskController {
         exTask.setPriority(task.getPriority());
         exTask.setDone(task.getDone());
         exTask.setDueDate(task.getDueDate());
+        exTask.setDesc(task.getDesc());
 
         taskService.updateTask(exTask);
     }

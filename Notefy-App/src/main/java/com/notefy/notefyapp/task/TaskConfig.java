@@ -21,7 +21,8 @@ public class TaskConfig {
                     HIGH,
                     false,
                     LocalDate.of(2023, SEPTEMBER, 21),
-                    LocalDate.of(2023, SEPTEMBER, 23)
+                    LocalDate.of(2023, SEPTEMBER, 23),
+                    "We need for some tests those notes alright?"
             );
 
             Task n2 = new Task(
@@ -29,7 +30,8 @@ public class TaskConfig {
                     LOW,
                     false,
                     LocalDate.of(2023, SEPTEMBER, 21),
-                    LocalDate.of(2023, SEPTEMBER, 25)
+                    LocalDate.of(2023, SEPTEMBER, 25),
+                    "In order for us to work, we need to be sure the DB is updated."
             );
 
             repository.saveAll(

@@ -27,25 +27,29 @@ public class Task {
     private LocalDate createDate;
     private LocalDate dueDate;
 
+    private String desc;
+
     public Task () {
 
     }
 
-    public Task(Long id, String title, PriorityType priority, boolean done, LocalDate createDate, LocalDate dueDate) {
+    public Task(Long id, String title, PriorityType priority, boolean done, LocalDate createDate, LocalDate dueDate, String desc) {
         this.id = id;
         this.title = title;
         this.priority = priority;
         this.done = done;
         this.createDate = createDate;
         this.dueDate = dueDate;
+        this.desc = desc;
     }
 
-    public Task(String title, PriorityType priority, boolean done, LocalDate createDate, LocalDate dueDate) {
+    public Task(String title, PriorityType priority, boolean done, LocalDate createDate, LocalDate dueDate, String desc) {
         this.title = title;
         this.priority = priority;
         this.done = done;
         this.createDate = createDate;
         this.dueDate = dueDate;
+        this.desc = desc;
     }
 
     public Long getId() {
@@ -94,6 +98,14 @@ public class Task {
 
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     @Override
