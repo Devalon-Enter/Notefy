@@ -1,7 +1,6 @@
 package com.notefy.notefyapp.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -48,7 +47,7 @@ public class TaskController {
         exTask.setPriority(task.getPriority());
         exTask.setDone(task.getDone());
         exTask.setDueDate(task.getDueDate());
-        exTask.setDesc(task.getDesc());
+        exTask.setDescription(task.getDescription());
 
         taskService.updateTask(exTask);
     }
