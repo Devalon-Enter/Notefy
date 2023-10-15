@@ -14,44 +14,57 @@
     <title>HomePage</title>
 </head>
 <body>
-    <h1>This is my Notefy</h1>
-    <p>Create a note!!</p>
+    <div class="landingScreen">
+        <h1>Notefy</h1>
 
-    <form action="../app/Models/createNote.php" method="post">
-        <label for="title">Title:</label>
-        <input type="text" name="title" id="title" required autofocus>
-        <br>
+        <div class="taskBox">
+            <h2>Create a new Task</h2>
 
-        <label for="priority">Priority:</label>
-        <select name="priority" id="priority" required>
-            <option value="CRITICAL">CRITICAL</option>
-            <option value="HIGH">HIGH</option>
-            <option value="MINOR">MINOR</option>
-            <option value="LOW">LOW</option>
-        </select>
-        <br>
+            <form action="../app/Models/createTask.php" method="post">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" required autofocus>
+                <br>
 
-        <label for="dueDate">Due Date:</label>
-        <input type="date" name="dueDate" id="dueDate" required>
-        <br>
+                <label for="description">Description:</label>
+                <textarea name="description" id="description"></textarea>
+                <br>
 
-        <input type="submit" value="Submit">
-    </form>
+                <label for="priority">Priority:</label>
+                <select name="priority" id="priority" required>
+                    <option value="CRITICAL">CRITICAL</option>
+                    <option value="HIGH">HIGH</option>
+                    <option value="MINOR">MINOR</option>
+                    <option value="LOW">LOW</option>
+                </select>
+                <br>
 
-    <h2>All Notes</h2>
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Priority</th>
-            <th>Status</th>
-            <th>Creation Date</th>
-            <th>Due Date</th>
-            <th></th>
-        </tr>
-        <?php
-        include '../app/Models/getAllNotes.php';
-        ?>
-    </table>
+                <label for="dueDate">Due Date:</label>
+                <input type="date" name="dueDate" id="dueDate" required>
+                <br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+
+    <div class="showTasks">
+        <div class="dueTasks">
+            <h2>All tasks</h2>
+
+            <?php
+                include '../app/Models/showDueTasks.php';
+            ?>
+        </div>
+
+        <div class="doneTasks">
+
+            <?php
+                //include '../app/Models/showDoneTasks.php';
+            ?>
+        </div>
+    </div>
+
 </body>
 </html>
 

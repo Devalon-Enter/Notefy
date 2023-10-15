@@ -9,7 +9,8 @@ $postData = array(
     'priority' => $_POST["priority"],
     'done' => false,
     'createDate' => date("Y-m-d"),
-    'dueDate' => $_POST["dueDate"]
+    'dueDate' => $_POST["dueDate"],
+    'description' => $_POST["description"]
 );
 
 // cURL-Initialisierung
