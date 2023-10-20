@@ -74,13 +74,21 @@
 
 /* Due Task Section */
 
-.dueTasks {
+.showTasks {
+    margin: 20vh 0;
+}
+
+#dueTasks {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.doneTasks {
+#doneTaskVisibility {
+    display: none;
+}
+
+#doneTasks {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -179,4 +187,19 @@
 
 .LOW {
     color: cornflowerblue;
+}
+
+#showDoneTasksTitle {
+    margin: 10vh;
+    cursor: pointer;
+    text-align: center;
+    color: lightgray;
+    font-weight: bold;
+    font-size: 30px;
+    font-style: italic;
+}
+
+#showDoneTasksTitle:hover {
+    color: grey;
+    text-decoration: underline;
 }

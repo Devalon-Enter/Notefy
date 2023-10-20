@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
     <title>HomePage</title>
 </head>
 <body>
@@ -49,25 +50,23 @@
     <div class="showTasks">
         <h2 class="pageTitle">All tasks</h2>
 
-        <div class="dueTasks">
+        <div id="dueTasks">
 
             <?php
                 include '../app/Models/showDueTasks.php';
             ?>
         </div>
 
-        <div class="doneTasks">
+        <p onclick="showDoneTasks()" id="showDoneTasksTitle">Show Done Tasks</p>
 
-            <?php
-                //include '../app/Models/showDoneTasks.php';
-            ?>
+        <div id="doneTaskVisibility">
+            <div id="doneTasks">
+                <?php
+                include '../app/Models/showDoneTasks.php';
+                ?>
+            </div>
         </div>
     </div>
 
 </body>
 </html>
-
-
-
-
-
