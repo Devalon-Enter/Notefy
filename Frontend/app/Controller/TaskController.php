@@ -30,6 +30,8 @@ if (!function_exists('getAllTasks')) {
 if (!function_exists('getAllDoneTasks')) {
     function getAllDoneTasks() {
         $DoneTasks = [];
+        if (empty(getAllTasks())) return $DoneTasks;
+
         foreach (getAllTasks() as $Task) {
             if ($Task["done"] == 1) {
                 array_push($DoneTasks, $Task);
@@ -44,6 +46,8 @@ if (!function_exists('getAllDoneTasks')) {
 if (!function_exists('getAllDueTasks')) {
     function getAllDueTasks() {
         $DueTasks = [];
+        if (empty(getAllTasks())) return $DueTasks;
+
         foreach (getAllTasks() as $Task) {
             if (empty($Task["done"])) {
                 array_push($DueTasks, $Task);
