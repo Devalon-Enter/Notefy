@@ -13,9 +13,6 @@ if (empty($doneTasks)) {
         echo "<p class='taskBoxDescription'>" . $DoneTask["description"] . "</p>";
         echo "<p class='taskBoxPriority " . $DoneTask["priority"] . "'>" . $DoneTask["priority"] . "</p>";
         echo "<span class='taskBoxDueDate'>Due to: " . $DoneTask["dueDate"] . "</span>";
-        echo "<button class='editButton'>Edit</button>";
-        echo "<button class='deleteButton'>Delete</button>";
-        echo "<button class='doneButton'>✔</button>";
         echo "<button class='editButton' onclick='showEditTask(" . $DoneTask["id"] . ")'>Edit</button>";
         echo "<button class='deleteButton' onclick='deleteTask(" . $DoneTask["id"] . ")'>Delete</button>";
         echo "</div>";
