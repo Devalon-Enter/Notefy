@@ -16,6 +16,8 @@ if (empty($doneTasks)) {
         echo "<button class='editButton'>Edit</button>";
         echo "<button class='deleteButton'>Delete</button>";
         echo "<button class='doneButton'>✔</button>";
+        echo "<button class='editButton' onclick='showEditTask(" . $DoneTask["id"] . ")'>Edit</button>";
+        echo "<button class='deleteButton' onclick='deleteTask(" . $DoneTask["id"] . ")'>Delete</button>";
         echo "</div>";
     }
 }

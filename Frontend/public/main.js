@@ -24,19 +24,18 @@ function sendHttpPostRequest(phpFileName, params) {
         },
         body: params // Your POST data
     })
-        .then(response => response.text())
-        .then(data => {
-            // Handle the response from the PHP file
-            console.log(data);
-        })
-        .catch(error => {
-            console.error("Error:", error);
-        });
-
+    .then(response => response.text())
+    .then(data => {
+        // Handle the response from the PHP file
+        console.log(data);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
 }
 
 function showEditTask() {
-
+    
 }
 
 function deleteTask(deleteId) {
@@ -44,4 +43,7 @@ function deleteTask(deleteId) {
     location.reload();
 }
 
+function markTaskDone(id) {
+    sendHttpPostRequest("../app/Models/markTaskDone.php", "id=" + id);
+    location.reload();
 }
