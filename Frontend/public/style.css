@@ -123,6 +123,7 @@
     right: -1px;
     border: 1px solid black;
     border-top-right-radius: 3px;
+    cursor: pointer;
 }
 
 .taskBox .deleteButton {

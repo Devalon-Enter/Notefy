@@ -34,8 +34,8 @@ function sendHttpPostRequest(phpFileName, params) {
     });
 }
 
-function showEditTask() {
-    
+function showEditTask(Task) {
+
 }
 
 function deleteTask(deleteId) {
