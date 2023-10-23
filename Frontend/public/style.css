@@ -132,6 +132,7 @@
     top: -1px;
     right: 48px;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 .taskBox .doneButton {

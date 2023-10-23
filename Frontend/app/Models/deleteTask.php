@@ -1,7 +1,7 @@
 <?php
 
 // Ziel-URL
-$url = 'http://localhost:8080/api/v1/task/' . $_POST["DeleteId"];
+$url = 'http://localhost:8080/api/v1/task/' . $_POST["deleteId"];
 
 // cURL-Initialisierung
 $curl = curl_init($url);
