@@ -61,7 +61,6 @@ if (!function_exists('updateTask')) {
             'title' => $task["title"],
             'priority' => $task["priority"],
             'done' => $task["done"],
-            'createDate' => date("Y-m-d"),
             'dueDate' => $task["dueDate"],
             'description' => $task["description"]
         );

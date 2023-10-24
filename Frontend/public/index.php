@@ -16,9 +16,11 @@
 
         <div class="createTaskBox">
             <div class="createTaskBoxContainer">
-                <h2>Create a new Task</h2>
+                <h2 id="taskBoxTitle">Create a new Task</h2>
 
-                <form action="../app/Models/createTask.php" method="post">
+                <form action="../app/Models/createTask.php" method="post" id="taskBoxForm">
+                    <input type="hidden" name="id" id="id" value="">
+                    
                     <label for="title">Title:</label><br>
                     <input type="text" name="title" id="title" required autofocus>
                     <br>
@@ -40,7 +42,7 @@
                     <input type="date" name="dueDate" id="dueDate" required>
                     <br>
 
-                    <input type="submit" value="Submit">
+                    <input type="submit" id="taskBoxSubmit" value="Submit">
                 </form>
             </div>
         </div>
