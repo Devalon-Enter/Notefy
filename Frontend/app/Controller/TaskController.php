@@ -1,6 +1,10 @@
 <?php
 
 if (!function_exists('getAllTasks')) {
+    /**
+     * Returns an array of all the Tasks that can be found in Database
+     * @return mixed
+     */
     function getAllTasks() {
         // Ziel-URL
         $url = 'http://localhost:8080/api/v1/task';
@@ -27,6 +31,11 @@ if (!function_exists('getAllTasks')) {
 }
 
 if (!function_exists('getTask')) {
+    /**
+     * Gets values of Task with ID
+     * @param int $taskId   ID of requested Task
+     * @return mixed
+     */
     function getTask($taskId) {
         $url = "http://localhost:8080/api/v1/task/{$taskId}";
 
@@ -51,6 +60,12 @@ if (!function_exists('getTask')) {
 }
 
 if (!function_exists('updateTask')) {
+    /**
+     * Update a Task using the TaskClass
+     *
+     * @param   array $task   Task Element with all the TaskData
+     *
+     */
     function updateTask($task) {
         $id = strval($task["id"]);
         $url = "http://localhost:8080/api/v1/task/{$id}";
@@ -88,6 +103,10 @@ if (!function_exists('updateTask')) {
 }
 
 if (!function_exists('getAllDoneTasks')) {
+    /**
+     * Gets a an array of all the Tasks that are marked as 'done'
+     * @return array
+     */
     function getAllDoneTasks() {
         $DoneTasks = [];
         if (empty(getAllTasks())) return $DoneTasks;
@@ -104,6 +123,10 @@ if (!function_exists('getAllDoneTasks')) {
 
 
 if (!function_exists('getAllDueTasks')) {
+    /**
+     * Gets a an array of all the Tasks that are NOT marked as 'done'
+     * @return array
+     */
     function getAllDueTasks() {
         $DueTasks = [];
         if (empty(getAllTasks())) return $DueTasks;
