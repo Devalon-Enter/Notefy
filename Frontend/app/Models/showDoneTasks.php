@@ -1,5 +1,5 @@
 <?php
-include "../app/Controller/TaskController.php";
+require_once "../app/Controller/TaskController.php";
 
 $doneTasks = getAllDoneTasks();
 

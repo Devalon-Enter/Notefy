@@ -52,7 +52,7 @@
         <div id="dueTasks">
 
             <?php
-                include '../app/Models/showDueTasks.php';
+                require_once '../app/Models/showDueTasks.php';
             ?>
         </div>
 
@@ -61,7 +61,7 @@
         <div id="doneTaskVisibility">
             <div id="doneTasks">
                 <?php
-                include '../app/Models/showDoneTasks.php';
+                require_once '../app/Models/showDoneTasks.php';
                 ?>
             </div>
         </div>
