@@ -57,7 +57,6 @@ async function sendtoGetTask(phpFileName, params) {
 async function showEditTask(taskId) {
 
     // Get the TaskData from ID
-    let params = "taskId=" + taskId;
     let TaskData = await sendtoGetTask("../app/Models/getTask.php", "id=" + taskId);
     let Task = JSON.parse(TaskData);
     Task = JSON.parse(Task);
@@ -76,36 +75,41 @@ async function showEditTask(taskId) {
     isDoneLabel.innerHTML = "  Task done?";
 
     const isDone = document.createElement("input");
-    isDone.checked = Task.done;
     isDone.type = "checkbox";
     isDone.name = "done";
     isDone.id = "done";
+    isDone.checked = Task.done;
 
     const returnButton = document.createElement("button");
-    returnButton.onclick = function () { window.location.replace("/") };
+    returnButton.onclick = () => { window.location.replace("/") };
     returnButton.class = "returnButton";
     returnButton.innerHTML = "Return";
 
     // Fill in the values of the Task
     const form = document.getElementById("taskBoxForm");
-    const id = document.getElementById("id");
-    const title = document.getElementById("title");
-    const descriptionLabel = document.getElementById("descriptionLabel");
-    const description = document.getElementById("description");
-    const priority = document.getElementById("priority");
-    const dueDate = document.getElementById("dueDate");
-    const saveButton = document.getElementById("taskBoxSubmit");
+    const elementsToUpdate = {
+        id: "id",
+        title: "title",
+        description: "description",
+        priority: "priority",
+        dueDate: "dueDate",
+        saveButton: "taskBoxSubmit"
+    };
 
-    form.insertBefore(isDoneLabel, descriptionLabel);
+    for (const key in elementsToUpdate) {
+        if (Object.hasOwnProperty.call(elementsToUpdate, key)) {
+            const element = document.getElementById(elementsToUpdate[key]);
+            if (key === "description") {
+                element.innerHTML = TaskData[key];
+            } else {
+                element.value = TaskData[key];
+            }
+        }
+    }
+
+    form.insertBefore(isDoneLabel, document.getElementById("descriptionLabel"));
     form.insertBefore(isDone, isDoneLabel);
-    form.insertBefore(returnButton, saveButton);
-
-    id.value = Task.id;
-    title.value = Task.title;
-    description.innerHTML = Task.description;
-    priority.value = Task.priority;
-    dueDate.value = Task.dueDate;
-    saveButton.value = "Save";
+    form.insertBefore(returnButton, document.getElementById("taskBoxSubmit"));
 
     window.scrollTo(0, 0);
 }
