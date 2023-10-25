@@ -56,14 +56,11 @@ async function sendtoGetTask(phpFileName, params) {
 
 async function showEditTask(taskId) {
 
-
     // Get the TaskData from ID
     let params = "taskId=" + taskId;
     let TaskData = await sendtoGetTask("../app/Models/getTask.php", "id=" + taskId);
     let Task = JSON.parse(TaskData);
     Task = JSON.parse(Task);
-
-    console.log(Task)
 
     // Change the taskBoxTitle
     document.getElementById("taskBoxTitle").innerHTML = "Edit Task";
@@ -75,7 +72,8 @@ async function showEditTask(taskId) {
     // Create the additional elements
     const isDoneLabel =document.createElement("label");
     isDoneLabel.htmlFor = "done";
-    isDoneLabel.innerHTML = "Is the Task done?";
+    isDoneLabel.className = "doneLabel";
+    isDoneLabel.innerHTML = "  Task done?";
 
     const isDone = document.createElement("input");
     isDone.checked = Task.done;
@@ -83,25 +81,32 @@ async function showEditTask(taskId) {
     isDone.name = "done";
     isDone.id = "done";
 
-    const br = document.createElement("br");
-
     const returnButton = document.createElement("button");
     returnButton.onclick = function () { window.location.replace("/") };
+    returnButton.class = "returnButton";
     returnButton.innerHTML = "Return";
 
     // Fill in the values of the Task
-    document.getElementById("id").value = Task.id;
-    document.getElementById("title").value = Task.title;
+    const form = document.getElementById("taskBoxForm");
+    const id = document.getElementById("id");
+    const title = document.getElementById("title");
+    const descriptionLabel = document.getElementById("descriptionLabel");
     const description = document.getElementById("description");
-    description.innerHTML = Task.description
-    document.getElementById("taskBoxForm").insertBefore(isDone, description);
-    document.getElementById("taskBoxForm").insertBefore(isDoneLabel, isDone);
-    document.getElementById("taskBoxForm").insertBefore(br, isDoneLabel);
-    document.getElementById("priority").value = Task.priority;
-    document.getElementById("dueDate").value = Task.dueDate;
+    const priority = document.getElementById("priority");
+    const dueDate = document.getElementById("dueDate");
     const saveButton = document.getElementById("taskBoxSubmit");
-    saveButton.value = "Save"
-    document.getElementById("taskBoxForm").insertBefore(returnButton, saveButton);
+
+    form.insertBefore(isDoneLabel, descriptionLabel);
+    form.insertBefore(isDone, isDoneLabel);
+    form.insertBefore(returnButton, saveButton);
+
+    id.value = Task.id;
+    title.value = Task.title;
+    description.innerHTML = Task.description;
+    priority.value = Task.priority;
+    dueDate.value = Task.dueDate;
+    saveButton.value = "Save";
+
     window.scrollTo(0, 0);
 }
 

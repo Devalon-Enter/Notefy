@@ -34,8 +34,13 @@
     text-align: center;
 }
 
+.createTaskBoxContainer * {
+    display: block;
+    margin: 5px auto 0 auto;
+}
+
 .createTaskBoxContainer h2 {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     font-weight: bolder;
 }
 
@@ -51,6 +56,15 @@
     width: 70%;
     height: 25px;
     margin-bottom: 20px;
+}
+
+.createTaskBoxContainer #done {
+    display: inline;
+    margin-bottom: 15px;
+}
+
+.createTaskBoxContainer .doneLabel {
+    display: inline;
 }
 
 .createTaskBoxContainer textarea {
@@ -70,6 +84,10 @@
 
 .createTaskBoxContainer input[type=submit]:hover {
     background-color: lightgray;
+}
+
+.createTaskBoxContainer .returnButton {
+    background-color: white;
 }
 
 /* Due Task Section */
