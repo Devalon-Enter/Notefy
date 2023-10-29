@@ -26,7 +26,7 @@ public class TaskController {
     public Task getTask(@PathVariable Long id) throws IOException {
         Task task = taskService.getTask(id);
         if(task == null) {
-            throw new IOException("task does not exist with id: " + id);
+            throw new IOException();
         }
         return task;
     }
@@ -36,6 +36,11 @@ public class TaskController {
         taskService.newTask(task);
     }
 
+    /**
+     * @param id
+     * @param task
+     * @throws IOException
+     */
     @PutMapping("{id}")
     public void updateTask(@PathVariable Long id, @RequestBody Task task) throws IOException {
         Task exTask = taskService.getTask(id);
@@ -53,7 +58,7 @@ public class TaskController {
     }
 
     @DeleteMapping("{id}")
-    public void deleteNote(@PathVariable Long id) throws IOException {
+    public void deleteTask(@PathVariable Long id) throws IOException {
         Task exTask = taskService.getTask(id);
         if(exTask == null) {
             throw new IOException("task does not exist with id: " + id);
