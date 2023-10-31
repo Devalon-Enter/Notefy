@@ -6,7 +6,7 @@ In this ReadMe we will quickly explain how our application works.
 
 1. [Introduction](#introduction)
 2. [Backend](#backend)
-    - [Sample Title 1](#sample-title-1)
+    - [Testing](#testing)
 3. [Frontend](#frontend)
 4. [Diagrams and planning](#diagrams-and-planning)
     - [Application use cases](#application-use-cases)
@@ -33,10 +33,10 @@ Of course we have to test our application. We found that the best way to test th
 
 
 | Test Name  | Test purpose | Expected result | Actual result | Test Status |
-| ------------- | ------------- | ------------- | ------------- | ------------- |
-| testGetTasks  | Get List of Task  | List of Tasks | List of Tasks | OK |
-|   | Throw error when list empty  | IOException | Test Error | NOK |
-| testGetTask  | Get Single Task  | Single Task Object | Single Task Object | OK |
+| ------------- | ------------------------- | ------------- | ------------- | ------------- |
+| testGetTasks  | Get List of Task          | List of Tasks | List of Tasks | OK |
+|   | Throw error when list empty           | IOException   | Test Error    | NOK |
+| testGetTask  | Get Single Task            | Single Task Object | Single Task Object | OK |
 |   | Check for ID | 1L | 1L | OK |
 |   | Throw Error when object not existent | IOException | Test Error | NOK |
 | testNewTask  | Create new Task | New Task ID found | NaN | NOK |
