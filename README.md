@@ -27,7 +27,24 @@ The Frontend accesses the functions from the API. Is is written with the help of
 
 ## Backend
 
-### Sample title 1
+
+### Testing
+Of course we have to test our application. We found that the best way to test the application is to write a testprotokoll alongside the Unit Tests. 
+
+
+| Test Name  | Test purpose | Expected result | Actual result | Test Status |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| testGetTasks  | Get List of Task  | List of Tasks | List of Tasks | OK |
+|   | Throw error when list empty  | IOException | Test Error | NOK |
+| testGetTask  | Get Single Task  | Single Task Object | Single Task Object | OK |
+|   | Check for ID | 1L | 1L | OK |
+|   | Throw Error when object not existent | IOException | Test Error | NOK |
+| testNewTask  | Create new Task | New Task ID found | NaN | NOK |
+|   | Throw error when Id already in Use | IOException | NaN | NOK |
+| testUpdateTask  | Update a Task | Field updated (title) | NaN | NOK |
+|   | Throw error when ID does not exists | IOException | NaN | NOK |
+| testDeleteTask  | Delete Task | Given ID deleted | NaN | NOK |
+|   | Throw error when ID does not exists | IOException | NaN | NOK |
 
 ## Frontend
 Like mentioned above, is the Frontend responsible for the handling of the passed Data.<br>
