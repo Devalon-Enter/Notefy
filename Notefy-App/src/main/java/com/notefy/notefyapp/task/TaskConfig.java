@@ -11,6 +11,13 @@ import static com.notefy.notefyapp.task.PriorityType.HIGH;
 import static com.notefy.notefyapp.task.PriorityType.LOW;
 import static java.util.Calendar.*;
 
+/**
+ * Da unsere Applikation nicht durchgehend läuft, wird hier
+ * jedes Mal wenn sie gestartet wird, zwei neue Objekte auf die Datenbank geschrieben.
+ * Das soll uns Zeit einsparen.
+ * @author Lorin Faber
+ * @version 1.0.0
+ */
 @Configuration
 public class TaskConfig {
     @Bean

@@ -1,9 +1,6 @@
 package com.notefy.notefyapp.task;
 
-
-
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity

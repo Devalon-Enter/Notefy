@@ -6,6 +6,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Das hier ist der TaskService. Er bildet die Schnittstelle
+ * zwischen TaskController, unserer Schnittstelle zum Frontend, und der Datenbank dar.
+ * Hier werden alle befehle für die Datenbank ausgeführt.
+ * @author Lorin Faber
+ * @version 1.0.0
+ */
 @Service
 public class TaskService {
 
@@ -18,7 +25,7 @@ public class TaskService {
 
     /**
      * @return
-     * Gibt mir alle Task Objekte von der
+     * Gibt alle Task Objekte von der
      * Datenbank zurück.
      */
     public List<Task> getTasks() {
