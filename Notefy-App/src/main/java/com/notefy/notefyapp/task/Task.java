@@ -2,6 +2,7 @@ package com.notefy.notefyapp.task;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table

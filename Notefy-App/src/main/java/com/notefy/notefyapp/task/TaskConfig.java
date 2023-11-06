@@ -3,6 +3,7 @@ package com.notefy.notefyapp.task;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -19,6 +20,7 @@ import static java.util.Calendar.*;
  * @version 1.0.0
  */
 @Configuration
+@Profile("prod")
 public class TaskConfig {
     @Bean
     CommandLineRunner commandLineRunner(TaskRepository repository) {

@@ -11,7 +11,7 @@ import java.util.Optional;
  * zwischen TaskController, unserer Schnittstelle zum Frontend, und der Datenbank dar.
  * Hier werden alle befehle für die Datenbank ausgeführt.
  * @author Lorin Faber
- * @version 1.0.0
+ * @version 1.1.0
  */
 @Service
 public class TaskService {
