@@ -16,31 +16,29 @@
 
         <div class="createTaskBox">
             <div class="createTaskBoxContainer">
-                <h2>Create a new Task</h2>
+                <h2 id="taskBoxTitle">Create a new Task</h2>
 
-                <form action="../app/Models/createTask.php" method="post">
-                    <label for="title">Title:</label><br>
+                <form action="../app/Models/createTask.php" method="post" id="taskBoxForm">
+                    <input type="hidden" name="id" id="id" value="">
+                    
+                    <label for="title">Title:</label>
                     <input type="text" name="title" id="title" required autofocus>
-                    <br>
 
-                    <label for="description">Description:</label><br>
+                    <label for="description" id="descriptionLabel">Description:</label>
                     <textarea name="description" id="description"></textarea>
-                    <br>
 
-                    <label for="priority">Priority:</label><br>
+                    <label for="priority">Priority:</label>
                     <select name="priority" id="priority" required>
                         <option value="CRITICAL">CRITICAL</option>
                         <option value="HIGH">HIGH</option>
                         <option value="MINOR" selected>MINOR</option>
                         <option value="LOW">LOW</option>
                     </select>
-                    <br>
 
-                    <label for="dueDate">Due Date:</label><br>
+                    <label for="dueDate">Due Date:</label>
                     <input type="date" name="dueDate" id="dueDate" required>
-                    <br>
 
-                    <input type="submit" value="Submit">
+                    <input type="submit" id="taskBoxSubmit" value="Submit">
                 </form>
             </div>
         </div>
@@ -54,7 +52,7 @@
         <div id="dueTasks">
 
             <?php
-                include '../app/Models/showDueTasks.php';
+                require_once '../app/Models/showDueTasks.php';
             ?>
         </div>
 
@@ -63,7 +61,7 @@
         <div id="doneTaskVisibility">
             <div id="doneTasks">
                 <?php
-                include '../app/Models/showDoneTasks.php';
+                require_once '../app/Models/showDoneTasks.php';
                 ?>
             </div>
         </div>

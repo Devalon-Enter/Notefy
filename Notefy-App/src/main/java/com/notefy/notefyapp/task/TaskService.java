@@ -16,25 +16,53 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
+    /**
+     * @return
+     * Gibt mir alle Task Objekte von der
+     * Datenbank zurück.
+     */
     public List<Task> getTasks() {
-        System.out.println("found items");
         return taskRepository.findAll();
     }
 
+    /**
+     * @param id
+     * Nimmt die ID welche vom Controller gesendet wurde
+     * und übergibt sie der Methode
+     * @return
+     * Mithilfe von der ID die wir bekommen haben suchen wir
+     * den Eintrag in der Datenbank und geben diesen dann
+     * wieder zurück.
+     */
     public Task getTask(Long id) {
         Optional<Task> task = taskRepository.findById(id);
         return task.get();
     }
 
+    /**
+     * @param task
+     * Wir bekommen ein Task Objekt vom Controller
+     * und speichern dieses Objekt in der Datenbank.
+     */
     public void newTask(Task task) {
-        System.out.println("You saved something on the DB: " + task);
         taskRepository.save(task);
     }
 
+    /**
+     * @param task
+     * Wir bekommen ein verändertes Task Objekt vom Controller
+     * und speichern dieses Objekt in der Datenbank.
+     */
     public void updateTask(Task task) {
         taskRepository.save(task);
     }
 
+    /**
+     * @param id
+     * Wir bekommen vom Controller eine ID
+     * und benutzen diese um ein Objekt auf der Datenbank zu finden
+     * und zu löschen.
+     */
     public void deleteTask(Long id) {
         Optional<Task> task = taskRepository.findById(id);
         taskRepository.delete(task.get());
