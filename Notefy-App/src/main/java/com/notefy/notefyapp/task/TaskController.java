@@ -1,6 +1,7 @@
 package com.notefy.notefyapp.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/v1/task")
+@Profile("prod")
 public class TaskController {
 
     public final TaskService taskService;

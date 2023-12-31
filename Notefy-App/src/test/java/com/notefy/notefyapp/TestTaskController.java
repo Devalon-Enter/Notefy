@@ -77,7 +77,6 @@ public class TestTaskController {
     @Test
     public void testGetTask() {
         doReturn(t1).when(this.taskService).getTask(1L);
-        doReturn(null).when(this.taskService).getTask(2L);
 
         Task result = this.taskController.getTask(1L);
 
