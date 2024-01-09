@@ -1,7 +1,7 @@
 package com.notefy.notefyapp.user;
 
 import java.time.LocalDate;
-public class AppUser implements User{
+public class AppUser implements IUser{
     private String firstName;
     private String lastName;
     private String eMail;
@@ -54,5 +54,10 @@ public class AppUser implements User{
 
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
+    }
+
+    @Override
+    public boolean checkRights() {
+        return false;
     }
 }

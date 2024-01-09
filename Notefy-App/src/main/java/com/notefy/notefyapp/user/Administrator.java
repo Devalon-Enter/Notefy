@@ -2,12 +2,14 @@ package com.notefy.notefyapp.user;
 
 import java.time.LocalDate;
 
-public class Administrator implements User {
+public class Administrator implements IUser {
     private String firstName;
     private String lastName;
     private String eMail;
     private String phoneNumber;
     private LocalDate birthday;
+
+    
 
     public Administrator(String firstName, String lastName, String eMail, String phoneNumber, LocalDate birthday) {
         this.firstName = firstName;
@@ -55,5 +57,10 @@ public class Administrator implements User {
 
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
+    }
+
+    @Override
+    public boolean checkRights() {
+        return false;
     }
 }
