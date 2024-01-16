@@ -2,12 +2,10 @@ package com.notefy.notefyapp.task;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
-import java.util.Objects;
 
 @Entity
 @Table
 public class Task {
-
     @Id
     @SequenceGenerator(
             name = "notes_sequence",
