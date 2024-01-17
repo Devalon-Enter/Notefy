@@ -23,7 +23,7 @@ public class User{
     private String email;
     private String phoneNumber;
     private LocalDate birthday;
-    private Roles role;
+    private String role;
     private String password;
 
     public User(
@@ -34,7 +34,7 @@ public class User{
             String email,
             String phoneNumber,
             LocalDate birthday,
-            Roles role,
+            String role,
             String password
     ) {
         this.id = id;
@@ -55,7 +55,7 @@ public class User{
             String email,
             String phoneNumber,
             LocalDate birthday,
-            Roles role,
+            String role,
             String password
     ) {
         this.firstName = firstName;
@@ -128,11 +128,11 @@ public class User{
         this.birthday = birthday;
     }
 
-    public Roles getRole() {
+    public String getRole() {
         return this.role;
     }
 
-    public void setRole(Roles role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
