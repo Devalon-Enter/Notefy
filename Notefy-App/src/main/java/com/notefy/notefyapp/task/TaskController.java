@@ -17,7 +17,7 @@ import java.util.List;
  * @version 1.1.0
  */
 @RestController
-@RequestMapping("/api/v1/task")
+@RequestMapping("/api/v2/task")
 @Profile("prod")
 public class TaskController {
 
