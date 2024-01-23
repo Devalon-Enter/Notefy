@@ -20,7 +20,6 @@ import static java.util.Calendar.*;
  * @version 1.0.0
  */
 @Configuration
-@Profile("prod")
 public class TaskConfig {
     @Bean
     CommandLineRunner commandLineRunner(TaskRepository repository) {
