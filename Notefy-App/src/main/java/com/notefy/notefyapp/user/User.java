@@ -1,29 +1,20 @@
 package com.notefy.notefyapp.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import java.time.LocalDate;
+
+import java.util.Set;
 
 @Entity
-@Table(name = "\"user\"")
+@Table(name = "\"users\"")
 public class User{
     @Id
-    @SequenceGenerator(
-            name = "user_sequence",
-            sequenceName = "user_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "user_sequence"
-    )
-    private long id;
+    private String id;
     private String firstName;
     private String lastName;
     private String username;
-    private String email;
-    private String phoneNumber;
-    private LocalDate birthday;
-    private String role;
+    private Set<String> role;
+    @JsonIgnore
     private String password;
 
     public User() {
@@ -31,23 +22,17 @@ public class User{
     }
 
     public User(
-            long id,
+            String id,
             String firstName,
             String lastName,
             String username,
-            String email,
-            String phoneNumber,
-            LocalDate birthday,
-            String role,
+            Set<String> role,
             String password
     ) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.birthday = birthday;
         this.role = role;
         this.password = password;
     }
@@ -56,28 +41,18 @@ public class User{
             String firstName,
             String lastName,
             String username,
-            String email,
-            String phoneNumber,
-            LocalDate birthday,
-            String role,
+            Set<String> role,
             String password
     ) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.birthday = birthday;
         this.role = role;
         this.password = password;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -104,35 +79,11 @@ public class User{
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String eMail) {
-        this.email = eMail;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getRole() {
+    public Set<String> getRole() {
         return this.role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Set<String> role) {
         this.role = role;
     }
 

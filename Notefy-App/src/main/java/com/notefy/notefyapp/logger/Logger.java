@@ -2,7 +2,7 @@ package com.notefy.notefyapp.logger;
 
 import java.util.Date;
 
-public class Logger {
+public class    Logger {
     private static Logger instance;
     private int counter = 0;
 
@@ -13,17 +13,19 @@ public class Logger {
 
     // Public method to get the singleton instance
     public static Logger getInstance() {
-        if (instance == null) {
-            synchronized (Logger.class) {
-                if (instance == null) {
+        synchronized (Logger.class) {
+            if (instance == null) {
                     instance = new Logger();
-                }
             }
         }
         return instance;
     }
 
     // Method to log messages
+    public void info(String message) {
+        log(message, LogType.INFO);
+    }
+
     public void log(String message, LogType logType) {
         counter += 1;
         Date currentDateTime = new Date();

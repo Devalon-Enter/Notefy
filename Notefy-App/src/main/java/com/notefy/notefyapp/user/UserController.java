@@ -1,16 +1,15 @@
 package com.notefy.notefyapp.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v2/user")
-@Profile("prod")
+@RequestMapping("api/v2/users")
 public class UserController {
 
     private final UserService userService;
@@ -20,13 +19,14 @@ public class UserController {
         this.userService = userService;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public List<User> getUsers() {
         return userService.getUsers();
     }
 
     @GetMapping("{id}")
-    public User getUser(@PathVariable long id) throws Exception {
+    public User getUser(@PathVariable String id) {
         User user = userService.getUser(id);
         if(user != null) {
             return user;
@@ -41,7 +41,7 @@ public class UserController {
     }
 
     @PutMapping("{id}")
-    public User updateUser(@PathVariable long id, @RequestBody User user) {
+    public User updateUser(@PathVariable String id, @RequestBody User user) {
         User depUser = userService.getUser(id);
         if(depUser == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User does not exist with id: " + id);
@@ -50,16 +50,13 @@ public class UserController {
         depUser.setFirstName(user.getFirstName());
         depUser.setLastName(user.getLastName());
         depUser.setUsername(user.getUsername());
-        depUser.setEmail(user.getEmail());
-        depUser.setPhoneNumber(user.getPhoneNumber());
-        depUser.setBirthday(user.getBirthday());
         depUser.setPassword(user.getPassword());
 
         return userService.updateUser(depUser);
     }
 
     @DeleteMapping("{id}")
-    public void deleteUser(@PathVariable long id) {
+    public void deleteUser(@PathVariable String id) {
         User toDeleteUser = userService.getUser(id);
         if(toDeleteUser == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User does not exist with id: " + id);

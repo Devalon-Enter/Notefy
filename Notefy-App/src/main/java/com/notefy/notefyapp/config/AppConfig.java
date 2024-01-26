@@ -1,12 +1,18 @@
-package com.notefy.notefyapp.task;
+package com.notefy.notefyapp.config;
 
+import com.notefy.notefyapp.task.Task;
+import com.notefy.notefyapp.task.TaskRepository;
+import com.notefy.notefyapp.user.User;
+import com.notefy.notefyapp.user.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 import static com.notefy.notefyapp.task.PriorityType.HIGH;
 import static com.notefy.notefyapp.task.PriorityType.LOW;
@@ -21,9 +27,9 @@ import static java.util.Calendar.*;
  */
 @Configuration
 @Profile("prod")
-public class TaskConfig {
+public class AppConfig {
     @Bean
-    CommandLineRunner commandLineRunner(TaskRepository repository) {
+    CommandLineRunner commandLineRunner(TaskRepository taskRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         return args -> {
             Task n1 = new Task(
                     "Create Notes",
@@ -43,8 +49,30 @@ public class TaskConfig {
                     "In order for us to work, we need to be sure the DB is updated."
             );
 
-            repository.saveAll(
+            taskRepository.saveAll(
                     List.of(n1, n2)
+            );
+
+            User u1 = new User(
+                    "Lorin",
+                    "Lorin",
+                    "Faber",
+                    "CoolGuy",
+                    Set.of("USER", "ADMIN"),
+                    passwordEncoder.encode("myAss")
+            );
+
+            User u2 = new User(
+                    "Mark",
+                    "Mark",
+                    "Bigler",
+                    "CoolTeacher",
+                    Set.of("USER"),
+                    passwordEncoder.encode("igSchiesseSeUfDeMond!")
+            );
+
+            userRepository.saveAll(
+                    List.of(u1, u2)
             );
         };
     }

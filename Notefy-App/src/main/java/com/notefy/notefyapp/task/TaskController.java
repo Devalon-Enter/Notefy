@@ -14,11 +14,10 @@ import java.util.List;
  * Hier befindet sich unser TaskController. Die Schnittstelle zwischen dem
  * Frontend befindet sich hier. Ausserdem findet hier die ganze Logik der Applikation statt.
  * @author Lorin Faber
- * @version 1.1.0
+ * @version 1.2.0
  */
 @RestController
 @RequestMapping("/api/v2/task")
-@Profile("prod")
 public class TaskController {
 
     public final TaskService taskService;
